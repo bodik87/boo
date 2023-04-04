@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transform: 0.3s cubic-bezier(0.12, 0.77, 0.16, 0.93);
+  --blue: #3e12e3;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Manrope", sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 6px;
+  margin: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 6px;
+}
+
+body {
+  height: 100%;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  padding: 0rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 2.5rem;
+  font-weight: 700;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transition: var(--transform);
+  overflow: hidden;
+  &:hover span {
+    height: 100%;
+  }
+  &:hover .childDiv {
+    background-color: #fff;
+  }
+}
+
+.span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--blue);
+  transition: var(--transform);
+  z-index: -1;
+  border-radius: 2.5rem;
+}
+
+.menuItemWrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+  > h2 {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+  & .roundedIcon {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    border: 1px solid lightgray;
+    overflow: hidden;
+    position: relative;
+    & .innerIconContent {
+      width: 400%;
+      position: absolute;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.7s ease;
+      padding-right: 6px;
+      padding-left: 5px;
+    }
+  }
+  &:hover .roundedIcon {
+    background-color: var(--blue);
+    border: 4px solid var(--blue);
+    & .innerIconContent {
+      right: -300%;
+      transition: all 0.7s ease;
+      & .arrow {
+        stroke: white;
+      }
+    }
+  }
+}
+
+.blueCircle {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  top: -4rem;
+  right: 1.25rem;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  width: 8rem;
+  height: 8rem;
+  z-index: 2;
+  border-radius: 50%;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: var(--transform);
+    background-color: var(--blue);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  &:hover::before {
+    transform: scale(0.9);
+    transition: var(--transform);
+  }
+  > span {
+    z-index: 1;
+  }
+  & .icon {
+    transition: var(--transform);
+  }
+  & .icon2 {
+    transform-origin: left bottom;
+    transform: scale(0);
+    transition: var(--transform);
+  }
+  &:hover .icon {
+    transform: translate(150%, -100%);
+    transition: var(--transform);
+  }
+  &:hover .icon2 {
+    transform: scale(1);
+    transition: var(--transform);
+    transition-delay: 0.2s;
+  }
+}
+
+.big {
+  height: 48px;
+  &:hover span {
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+  & .icon {
+    transform-origin: right top;
+    transform: scale(1);
+    transition: var(--transform);
+    transition-delay: 0.3s;
+  }
+  & .icon2 {
+    transform-origin: left bottom;
+    transform: scale(0);
+    transition: var(--transform);
+  }
+  &:hover .icon {
+    transform: scale(0);
+    transition: var(--transform);
+  }
+  &:hover .icon2 {
+    transform: scale(1);
+    transition: var(--transform);
+    transition-delay: 0.3s;
+  }
+}
+
+.arrowsWrapper {
+  & .icon {
+    transform-origin: right top;
+    transform: scale(1);
+    transition: var(--transform);
+    transition-delay: 0.3s;
+  }
+  & .icon2 {
+    transform-origin: left bottom;
+    transform: scale(0);
+    transition: var(--transform);
+  }
+  &:hover .icon {
+    transform: scale(0);
+    transition: var(--transform);
+  }
+  &:hover .icon2 {
+    transform: scale(1);
+    transition: var(--transform);
+    transition-delay: 0.3s;
+  }
+}
+
+.imgWrapper {
+  > img {
+    transition: var(--transform);
+  }
+  overflow: hidden;
+  &:hover > img {
+    transform: scale(1.03);
+    transition: var(--transform);
+  }
+}
