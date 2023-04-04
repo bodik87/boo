@@ -18,7 +18,7 @@ export default function Projects() {
 
           <a
             href="https://portfolio-next13-nnoz.vercel.app/"
-            className="btn uppercase big mt-8 bg-[#3E12E3] text-white"
+            className="btn w-full uppercase big mt-8 bg-[#3E12E3] text-white"
           >
             Портфоліо
             <span className="span" />

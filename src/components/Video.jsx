@@ -42,7 +42,6 @@ export const Video = () => {
         </span>
         <span className="mt-1">Telegram</span>
       </a>
-      <div className="absolute inset-0 bg-black/50 rounded-3xl" />
       <video
         className="w-full h-full rounded-3xl object-cover"
         src={videoBg}
