@@ -1,11 +1,23 @@
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import videoBg from "/video.mp4";
+import { useState } from "react";
 
 export const Video = () => {
-  const h = 400;
+  let h = 400;
+  const [height, setHeight] = useState(h);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (scrollY.current < 550) {
+      let x = h - Math.round(latest / 2);
+      setHeight(x);
+    }
+  });
+
   return (
     <section
-      style={{ height: `${h}px` }}
-      className="w-full h-32 flex justify-center items-center relative"
+      style={{ height: `${height}px` }}
+      className="w-full h-32 mb-2 flex justify-center items-center relative"
     >
       <a href="https://t.me/bodik_87" className="blueCircle">
         <span className="messege w-10 h-10 relative overflow-hidden">
@@ -21,7 +33,7 @@ export const Video = () => {
         autoPlay
         loop
         muted
-      ></video>
+      />
     </section>
   );
 };

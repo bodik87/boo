@@ -9,7 +9,7 @@ export default function Projects() {
     visible: { opacity: 1, x: 0, transition: { delay: 0.2 } },
   };
   return (
-    <section className="py-12 mt-8 bg-[#181819] text-white rounded-b-3xl">
+    <section className="py-12 bg-[#181819] text-white rounded-b-3xl">
       <motion.p
         variants={variants}
         initial="hidden"
