@@ -1,21 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Header/Logo";
 import Menu from "./Header/Menu/Menu";
 import Contacts from "./Header/Contacts";
 import Burger from "./Header/Burger";
-import {
-  useMotionValueEvent,
-  motion,
-  useScroll,
-  useMotionValue,
-} from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 export default function Header() {
-  const [scrollUp, setScrollUp] = useState(false);
+  const [scrollUp, setScrollUp] = useState(true);
   const [transparent, setTransparent] = useState(true);
 
   const { scrollY } = useScroll();
-  const Y = useMotionValue(0);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previousScrollY = scrollY.getPrevious();
@@ -30,13 +24,15 @@ export default function Header() {
     } else {
       setTransparent(false);
     }
+
+    console.log(scrollUp);
   });
 
   return (
     <header
-      className={`${scrollUp ? "" : "-translate-y-full"} ${
+      className={`${!scrollUp && "-translate-y-full"} ${
         transparent ? "bg-transparent" : "bg-white shadow-md"
-      } fixed top-0 left-0 w-full transition-all duration-300 px-4 md:px-12 py-4 flex items-center justify-between whitespace-nowrap z-40`}
+      } fixed top-0 left-0 w-full transition-all duration-300 px-4 md:px-12 py-4 flex items-center justify-between whitespace-nowrap z-20`}
     >
       <Logo />
       <Menu />

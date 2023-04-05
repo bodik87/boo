@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="bg-[#D2D7F0] mb-28 rounded-b-3xl">
+    <div className="bg-[#D2D7F0] mb-28 rounded-b-3xl overflow-x-hidden">
       <Header />
       <Promo />
       <Video />
