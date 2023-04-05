@@ -4,11 +4,20 @@ import Arrows from "./Icons/Arrows";
 import { projects } from "../../data";
 
 export default function Projects() {
+  const variants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { delay: 0.2 } },
+  };
   return (
     <section className="py-12 mt-8 bg-[#181819] text-white rounded-b-3xl">
-      <p className="mx-8 pb-3 uppercase text-[42px] font-bold border-b border-b-gray-600">
+      <motion.p
+        variants={variants}
+        initial="hidden"
+        whileInView="visible"
+        className="mx-8 pb-3 uppercase text-[42px] font-bold border-b border-b-gray-600"
+      >
         Мої роботи
-      </p>
+      </motion.p>
       <div className="grid grid-cols-1 lg:grid-cols-3">
         <div className="p-8">
           <p className="">

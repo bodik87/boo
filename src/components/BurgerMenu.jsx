@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Logo from "./Logo";
+import React, { useEffect } from "react";
+import Logo from "./Header/Logo";
 
-export default function Burger() {
-  const [visibleMenu, setVisibleMenu] = useState(false);
-
+export default function BurgerMenu({ visibleMenu, setVisibleMenu }) {
   const closeModal = () => setVisibleMenu(!visibleMenu);
 
   useEffect(() => {
     if (visibleMenu) window.document.body.style.overflow = "hidden";
     else window.document.body.style.overflow = "auto";
   }, [visibleMenu]);
-
   return (
     <>
-      <button
-        onClick={() => setVisibleMenu(true)}
-        className="md:hidden btn bg-white shadow-md flex-col gap-1"
-      >
-        <div className="bg-[#181819] w-5 h-[2px] childDiv" />
-        <div className="bg-[#181819] w-5 h-[2px] childDiv" />
-        <span className="span" />
-      </button>
-
       <div
         className={`${
           visibleMenu ? "translate-x-0" : "translate-x-full"

@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import Logo from "./Header/Logo";
 import Menu from "./Header/Menu/Menu";
 import Contacts from "./Header/Contacts";
-import Burger from "./Header/Burger";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
-export default function Header() {
+export default function Header({ setVisibleMenu }) {
   const [scrollUp, setScrollUp] = useState(true);
   const [transparent, setTransparent] = useState(true);
 
@@ -24,8 +23,6 @@ export default function Header() {
     } else {
       setTransparent(false);
     }
-
-    console.log(scrollUp);
   });
 
   return (
@@ -38,7 +35,14 @@ export default function Header() {
       <Menu />
       <div className="flex items-center gap-2">
         <Contacts />
-        <Burger />
+        <button
+          onClick={() => setVisibleMenu(true)}
+          className="md:hidden btn bg-white shadow-md flex-col gap-1"
+        >
+          <div className="bg-[#181819] w-5 h-[2px] childDiv" />
+          <div className="bg-[#181819] w-5 h-[2px] childDiv" />
+          <span className="span" />
+        </button>
       </div>
     </header>
   );
