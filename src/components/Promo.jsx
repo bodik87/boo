@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Promo() {
-  const pVariants = {
-    hidden: { opacity: 0, y: "100%" },
-    visible: { opacity: 1, y: 0 },
-  };
+export const pVariants = {
+  hidden: { opacity: 0, y: "100%" },
+  visible: { opacity: 1, y: 0 },
+};
 
+export default function Promo() {
   return (
-    <section className="mt-10 xl:mt- pt-4 md:pt-20 pb-14 md:pb-44 flex flex-col items-center gap-3 uppercase font-bold text-3xl md:text-[60px] lg:text-[80px] xl:text-[120px] leading-none tracking-tight text-[#141414]">
+    <section className="pt-28 md:pt-20 pb-14 md:pb-44 flex flex-col items-center gap-3 uppercase font-bold text-3xl md:text-[60px] lg:text-[80px] xl:text-[120px] leading-none tracking-tight text-[#141414]">
       <div className="overflow-hidden">
         <motion.div
           initial={"hidden"}

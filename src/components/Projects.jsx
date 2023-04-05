@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Arrows from "./Icons/Arrows";
 import { projects } from "../../data";
 
